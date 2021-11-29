@@ -1,123 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>CLASE INFRA</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>VPC</title>
 </head>
+
 <body>
-    <header>
-        <h2>Tutorial AWS</h2>
-    </header>
-    <main>
-        <h4> Primer etapa crear una instancia en aws </h4>
-        <br>
-        <p>Se realiza el login con el Account ID proporcionado por el catedratico</p>
-        <img src="./img/aws1.png" alt="log in aws">
-        <p>Darle click al ec2</p>
-        <img src="./img/aws2.png" alt="ec2">
-        <p>Asegurarse cambiar la region</p>
-        <img src="./img/aws3.png" alt="primer click region">
-        <p>Darle click us-east-1</p>
-        <img src="./img/aws4.png" alt="us-east-1">
-        <p>Despues asegurarse darle click donde dice Instances</p>
-        <img src="./img/aws5.png" alt="instances">
-        <p>Le damos click a boton naranja que dice Launch instances</p>
-        <img src="./img/aws6.png" alt="launch">
-        <p>Nos va a dar a la pantalla de de CHOOSE AMI, tenemos que observar que diga Amazon Linux 2 AMI (HVM), SSD Volume Type,<br>
-        tenemos que asegurarnos que este en 64-bit(x86) y le damos click en select</p>
-        <img src="./img/aws7.png" alt="AMI">
-        <p>Estamos ahora en la pantalla <b>Choose an Instance Type</b> tenemos que darle click donde dice <i>t2 micro Free tier elegible</i>,<br>
-        proseguimos a darle click a Next: Configure Instance Details</p>
-        <img src="./img/aws8.png" alt="Instance Type">
-        <p>Ahora en el Configure instance details nos vamos a Subnet y le damos click a us-east-1a</p>
-        <img src="./img/aws9.png" alt="Subnet">
-        <p>En auto assign public Ip le damos click en enable y nos vamos a darle click a next en el boton de la esquina inferior derecha </p>
-        <img src="./img/aws10.png" alt="assign">
-        <p>En el add storage nos aseguramos que este en 8gb de almacenamiento y solo le damos click next add tags</p>
-        <img src="./img/aws11.png" alt="storage">
-        <p>en Add Tags le damos click al boton que dice add tag</p>
-        <img src="./img/aws12.png" alt="addtags">
-        <p>Despues le en el key escribimos la palabra Name, en el Value escribimos nuestro nombre y proseguimos a darle click a Next</p>
-        <img src="./img/aws13.png" alt="value">
-        <p>Estamos en la pantalla de configure security group. Donde dice security group name despues de <b>launch-wizard-2</b> le agregamos<br>
-             un guion seguido por un nombre-nombre y finalizamos dando en Review and Launch</p>
-        <img src="./img/aws14.png" alt="securitygroup">
-        <p>En el Step 7 revisamos que todo este en orden y solo damos click en Launch</p>
-        <img src="./img/aws15.png" alt="Step7">
-        <p>Nos va salir una pantalla emergente con que nos pide se le agregamos una llave(key), escogemos la opcion que dice, "Proceed without a key pair</p>
-        <img src="./img/aws16.png" alt="key">
-        <p>Le damos click a la casilla vacia y despues Launch</p>
-        <img src="./img/aws17.png" alt="casilla">
-        <p>Hay dos maneras de ir a la instancia dandole click al i-con los numeros o le damos click en view instances</p>
-        <img src="./img/aws18.png" alt="alainstancia">
-        <p>Ya devuelto a las instancias le damos click a nuestra instancia y podemos darle connect de dos maneras en actions o simplemente en el boton connect</p>
-        <img src="./img/aws19.png" alt="connect">
-        <p>Nos aseguramos que este en ec2 instance connect y solo le damos click en connect</p>
-        <img src="./img/aws20.png" alt="instance connect">
+    <h2>Como crear una vpc en amazon web services</h2>
 
-        <h4>Segunda etapa maquina virtual e instalacion de servicios</h4>
-        <br>
-        <p>Primero tenemos que actualizar el centOS entonces escribimos: $ sudo yum update <br>
-        Nos pide que si queremos descargar tanta cantidad y escribimos <b>y</b></p>
-        <p><b>Ojo no copiamos el simbolo: $ dolar solo es de referencia a cual es el codigo</b></p>
-        <img src="./img/vmn1.png">
-        <img src="./img/vmn2.png">
-        <h5>instalacion del node</h5>
-        <br>
-        <p>ingresamos cada uno de estos codigos para hacer uso de la instalacion</p>
-        <br>
-        <p>$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash</p>
-        <p>$ . ~/.nvm/nvm.sh</p>
-        <p>$ nvm install node</p>
-        <p>$ node -e "console.log('Running Node.js ' + process.version)"</p>
-        <p>el ultimo codigo nos dice la version que estamos corriendo del node</p>
-        <img src="./img/vmn3.png">
-        <h5>Instalacion del Git y uso de archivos</h5>
-        <br>
-        <p>Primero instalamos el git con este codigo: </p>
-        <p>$ sudo yum install git</p>
-        <img src="./img/vmn4.png">
-        <p>Ahora se prosigue a incorporar las carpetas de codigo de las url en la pagina de Git.
-            <br> le damos click a al boton verde que dice code y copiamos la url que esta alli.
-        </p>
-        <img src="./img/vmn5.png">
-        <p>Nos vamos a la maquina virtual y escribimos $ git clone presionamos la tecla space(espacio) y pegamos la url</p>
-        <img src="./img/vmn6.png">
-        <p>Escribimos el comando $ ls y nos van aparecer en letras moradas el nombre del archivo </p>
-        <img src="./img/wmn7.png">
-        <p>Usamos el comando $ cd mas el nombre de la carpeta que esta en las letras moradas para ir a la carpeta de destino<br>
-        notamos que ahora hay un cambio donde escribimos el codigo</p>
-        <img src="./img/vmn7.png">
-        <p>Hacemos un $ npm install</p>
-        <img src="./img/vmn8.png">
-        <p>Ingresamos el codigo $ npm install -g pm2 esto es para instalar el pm2 que permite que no se cierre el host aunque nos salgamos del sitio</p>
-        <img src="./img/vmn9.png">
-        <p>ahora iniciamos el js de la carpeta git con este codigo $ pm2 start app.js <br>
-            <b>ojo app.js solo es el nombre del js para correr nuestro archivo el nombre puede ser cualquiera</b></p>
-        <img src="./img/vmn10.png">
-        <p>Hacemos el curl localhost:5000 para ver nuestro proyecto localmente</p>
-        <img src="./img/vmn11.png">
-        <h4>Cambios en el protocolo de seguridad y usar una ip publica</h4>
-        <br>
-        <p>Entramos a la pantalla de instancia y entramos a nuestra instancia, nos vamos a security y le damos click al link que esta en security groups</p>
-        <img src="./img/aws21.png">
-        <p>Despues buscamos edit bounds y le damos click</p>
-        <img src="./img/aws22.png">
-        <p>Primero le damos en add rule aparece una nueva linea y aqui podemos ingresar el puerto 5000 <br>
-            y en source le damos a la opcion anywhere ipv4 </p>
-        <img src="./img/aws23.png">
-        <p>Tambien para que ya no estemos ingresando en el link 5000, vamos agregar una nueva regla en este le vamos a poner puerto 80 y siempre en anywhere ipv4
-            <br> y le damos save rules
-        </p>
-        <img src="./img/aws23.png">
-        <p>Ahora nos vamos a nuestra instancia y buscamos nuestra ip publica y ahora nos tiene que dar el archivo que subimos</p>
-    </main>
-    <footer>
+    <p>Primero nos ubicamos al VPC</p>
+    <img src="./img/1.png">
+    <p>Nos vamos al boton naranja y le damos click </p>
+    <img src="./img/2.png">
+    <p>Aparece la vpc creada</p>
+    <img src="./img/3.png">
+    <p>Nos vamos a crear la Subnet dandole click al boton naranja</p>
+    <img src="./img/4.png">
+    <p>Escogemos nuestra vpc que creamos</p>
+    <img src="./img/5.png">
+    <p>Creamos cada una de las subnets, primero creamos la publica y despues la privada que las primeras dos sean de us-east-1a y las otras en us-east-1b</p>
+    <img src="./img/6.png">
+    <p>privada 1</p>
+    <img src="./img/7.png">
+    <p>publica 2 pero en us-east-1b</p>
+    <img src="./img/8.png">
+    <p>privada us-east-1b</p>
+    <img src="./img/9.png">
+    <p>Ya creamos las subnets</p>
+    <img src="./img/10.png">
+    <p>Ahora nos vamos a crear las ip Elasticas</p>
+    <img src="./img/11.png">
+    <p>hacemos la ip elastica en us east 1 y creamos el tag</p>
+    <img src="./img/12.png">
+    <p>Hacemos el tag</p>
+    <img src="./img/13.png">
+    <p>Creamos los route tables</p>
+    <img src="./img/14.png">
+    <p></p>
+    <img src="./img/15.png">
+    <p></p>
+    <img src="./img/16.png">
+    <p></p>
+    <img src="./img/17.png">
+    <p></p>
+    <img src="./img/18.png">
+    <p></p>
+    <img src="./img/19.png">
+    <p></p>
+    <img src="./img/20.png">
+    <p></p>
+    <img src="./img/21.png">
+    <p></p>
+    <img src="./img/22.png">
+    <p></p>
+    <img src="./img/23.png">
+    <p></p>
+    <img src="./img/24.png">
+    <p></p>
+    <img src="./img/25.png">
+    <p></p>
+    <img src="./img/26.png">
+    <p></p>
+    <img src="./img/27.png">
+    <p></p>
+    <img src="./img/28.png">
+    <p></p>
+    <img src="./img/29.png">
+    <p></p>
+    <img src="./img/30.png">
+    <p></p>
+    <img src="./img/31.png">
+    <p></p>
+    <img src="./img/32.png">
+    <p></p>
+    <img src="./img/33.png">
+    <p></p>
+    <img src="./img/34.png">
+    <p></p>
+    <img src="./img/35.png">
+    <p></p>
+    <img src="./img/37.png">
+    <p></p>
+    <img src="./img/38.png">
+    <p></p>
+    <img src="./img/39.png">
+    <p></p>
+    <img src="./img/40.png">
+    <p></p>
+    <img src="./img/41.png">
+    <p></p>
+    <img src="./img/42.png">
+    <p></p>
+    <img src="./img/43.png">
+    <p></p>
+    <img src="./img/44.png">
+    <p></p>
+    <img src="./img/45.png">
 
-    </footer>
-    
+
+
 </body>
+
 </html>
